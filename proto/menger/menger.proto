@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package wm.sx.svc.menger;
+
+service Menger {
+	rpc Login(LoginRequest) returns (LoginResponse) {}
+}
+
+message LoginRequest {
+
+}
+
+message LoginResponse {
+	string Msg  = 1;
+}
