@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  menger-svc:
+    container_name: sx-menger-svc
+    image: menger-svc:latest
+    restart: always
+    environment:
+      MICRO_REGISTRY: etcd
+      MICRO_REGISTRY_ADDRESS: sx-etcd-node1:2380,sx-etcd-node2:2380,sx-etcd-node3:2380
+    networks:
+      - sx-net
+networks:
+  sx-net:
+    external: true # 使用自定义创建好的网络，我创建的网络名加sx-net，方便与其他服务通信

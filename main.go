@@ -4,9 +4,8 @@ import (
 	"github.com/micro/go-micro/v2"
 	log "github.com/micro/go-micro/v2/logger"
 	"github.com/wmsx/menger_svc/handler"
+	menger "github.com/wmsx/menger_svc/proto/menger"
 )
-
-
 
 func main() {
 	service := micro.NewService(

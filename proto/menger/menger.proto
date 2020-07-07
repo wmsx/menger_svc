@@ -3,13 +3,16 @@ syntax = "proto3";
 package wm.sx.svc.menger;
 
 service Menger {
-	rpc Login(LoginRequest) returns (LoginResponse) {}
+    rpc Login (LoginRequest) returns (LoginResponse) {
+    }
 }
 
 message LoginRequest {
-
+    string name = 1;
+    string email = 2;
+    string password = 3;
 }
 
 message LoginResponse {
-	string Msg  = 1;
+    string Msg = 1;
 }
