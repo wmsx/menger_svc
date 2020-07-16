@@ -25,6 +25,171 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+type ErrorMsg struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Msg string `protobuf:"bytes,1,opt,name=msg,proto3" json:"msg,omitempty"`
+}
+
+func (x *ErrorMsg) Reset() {
+	*x = ErrorMsg{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ErrorMsg) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ErrorMsg) ProtoMessage() {}
+
+func (x *ErrorMsg) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ErrorMsg.ProtoReflect.Descriptor instead.
+func (*ErrorMsg) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *ErrorMsg) GetMsg() string {
+	if x != nil {
+		return x.Msg
+	}
+	return ""
+}
+
+type RegisterRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Name     string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Email    string `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
+	Password string `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
+	Avatar   string `protobuf:"bytes,4,opt,name=avatar,proto3" json:"avatar,omitempty"`
+}
+
+func (x *RegisterRequest) Reset() {
+	*x = RegisterRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RegisterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterRequest) ProtoMessage() {}
+
+func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterRequest.ProtoReflect.Descriptor instead.
+func (*RegisterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *RegisterRequest) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *RegisterRequest) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *RegisterRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+func (x *RegisterRequest) GetAvatar() string {
+	if x != nil {
+		return x.Avatar
+	}
+	return ""
+}
+
+type RegisterResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ErrorMsg *ErrorMsg `protobuf:"bytes,999,opt,name=errorMsg,proto3" json:"errorMsg,omitempty"`
+}
+
+func (x *RegisterResponse) Reset() {
+	*x = RegisterResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RegisterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterResponse) ProtoMessage() {}
+
+func (x *RegisterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterResponse.ProtoReflect.Descriptor instead.
+func (*RegisterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *RegisterResponse) GetErrorMsg() *ErrorMsg {
+	if x != nil {
+		return x.ErrorMsg
+	}
+	return nil
+}
+
 type LoginRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -38,7 +203,7 @@ type LoginRequest struct {
 func (x *LoginRequest) Reset() {
 	*x = LoginRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_menger_menger_proto_msgTypes[0]
+		mi := &file_proto_menger_menger_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -51,7 +216,7 @@ func (x *LoginRequest) String() string {
 func (*LoginRequest) ProtoMessage() {}
 
 func (x *LoginRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_menger_menger_proto_msgTypes[0]
+	mi := &file_proto_menger_menger_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -64,7 +229,7 @@ func (x *LoginRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginRequest.ProtoReflect.Descriptor instead.
 func (*LoginRequest) Descriptor() ([]byte, []int) {
-	return file_proto_menger_menger_proto_rawDescGZIP(), []int{0}
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *LoginRequest) GetName() string {
@@ -93,13 +258,15 @@ type LoginResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Msg string `protobuf:"bytes,1,opt,name=Msg,proto3" json:"Msg,omitempty"`
+	Token      string      `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	MengerInfo *MengerInfo `protobuf:"bytes,2,opt,name=mengerInfo,proto3" json:"mengerInfo,omitempty"`
+	ErrorMsg   *ErrorMsg   `protobuf:"bytes,999,opt,name=errorMsg,proto3" json:"errorMsg,omitempty"`
 }
 
 func (x *LoginResponse) Reset() {
 	*x = LoginResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_menger_menger_proto_msgTypes[1]
+		mi := &file_proto_menger_menger_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -112,7 +279,7 @@ func (x *LoginResponse) String() string {
 func (*LoginResponse) ProtoMessage() {}
 
 func (x *LoginResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_menger_menger_proto_msgTypes[1]
+	mi := &file_proto_menger_menger_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -125,12 +292,395 @@ func (x *LoginResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoginResponse.ProtoReflect.Descriptor instead.
 func (*LoginResponse) Descriptor() ([]byte, []int) {
-	return file_proto_menger_menger_proto_rawDescGZIP(), []int{1}
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *LoginResponse) GetMsg() string {
+func (x *LoginResponse) GetToken() string {
 	if x != nil {
-		return x.Msg
+		return x.Token
+	}
+	return ""
+}
+
+func (x *LoginResponse) GetMengerInfo() *MengerInfo {
+	if x != nil {
+		return x.MengerInfo
+	}
+	return nil
+}
+
+func (x *LoginResponse) GetErrorMsg() *ErrorMsg {
+	if x != nil {
+		return x.ErrorMsg
+	}
+	return nil
+}
+
+type LogoutRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	MengerId int64 `protobuf:"varint,1,opt,name=mengerId,proto3" json:"mengerId,omitempty"`
+}
+
+func (x *LogoutRequest) Reset() {
+	*x = LogoutRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *LogoutRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LogoutRequest) ProtoMessage() {}
+
+func (x *LogoutRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LogoutRequest.ProtoReflect.Descriptor instead.
+func (*LogoutRequest) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *LogoutRequest) GetMengerId() int64 {
+	if x != nil {
+		return x.MengerId
+	}
+	return 0
+}
+
+type LogoutResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ErrorMsg *ErrorMsg `protobuf:"bytes,999,opt,name=errorMsg,proto3" json:"errorMsg,omitempty"`
+}
+
+func (x *LogoutResponse) Reset() {
+	*x = LogoutResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *LogoutResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LogoutResponse) ProtoMessage() {}
+
+func (x *LogoutResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LogoutResponse.ProtoReflect.Descriptor instead.
+func (*LogoutResponse) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *LogoutResponse) GetErrorMsg() *ErrorMsg {
+	if x != nil {
+		return x.ErrorMsg
+	}
+	return nil
+}
+
+type GetMengerRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	MengerId int64 `protobuf:"varint,1,opt,name=mengerId,proto3" json:"mengerId,omitempty"`
+}
+
+func (x *GetMengerRequest) Reset() {
+	*x = GetMengerRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMengerRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMengerRequest) ProtoMessage() {}
+
+func (x *GetMengerRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMengerRequest.ProtoReflect.Descriptor instead.
+func (*GetMengerRequest) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *GetMengerRequest) GetMengerId() int64 {
+	if x != nil {
+		return x.MengerId
+	}
+	return 0
+}
+
+type GetMengerResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	MengerInfo *MengerInfo `protobuf:"bytes,1,opt,name=mengerInfo,proto3" json:"mengerInfo,omitempty"`
+	ErrorMsg   *ErrorMsg   `protobuf:"bytes,999,opt,name=errorMsg,proto3" json:"errorMsg,omitempty"`
+}
+
+func (x *GetMengerResponse) Reset() {
+	*x = GetMengerResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMengerResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMengerResponse) ProtoMessage() {}
+
+func (x *GetMengerResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMengerResponse.ProtoReflect.Descriptor instead.
+func (*GetMengerResponse) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *GetMengerResponse) GetMengerInfo() *MengerInfo {
+	if x != nil {
+		return x.MengerInfo
+	}
+	return nil
+}
+
+func (x *GetMengerResponse) GetErrorMsg() *ErrorMsg {
+	if x != nil {
+		return x.ErrorMsg
+	}
+	return nil
+}
+
+type GetMengerListRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	MengerIds []int64 `protobuf:"varint,1,rep,packed,name=mengerIds,proto3" json:"mengerIds,omitempty"`
+}
+
+func (x *GetMengerListRequest) Reset() {
+	*x = GetMengerListRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMengerListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMengerListRequest) ProtoMessage() {}
+
+func (x *GetMengerListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMengerListRequest.ProtoReflect.Descriptor instead.
+func (*GetMengerListRequest) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *GetMengerListRequest) GetMengerIds() []int64 {
+	if x != nil {
+		return x.MengerIds
+	}
+	return nil
+}
+
+type GetMengerListResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	MengerInfos []*MengerInfo `protobuf:"bytes,1,rep,name=mengerInfos,proto3" json:"mengerInfos,omitempty"`
+	ErrorMsg    *ErrorMsg     `protobuf:"bytes,999,opt,name=errorMsg,proto3" json:"errorMsg,omitempty"`
+}
+
+func (x *GetMengerListResponse) Reset() {
+	*x = GetMengerListResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMengerListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMengerListResponse) ProtoMessage() {}
+
+func (x *GetMengerListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMengerListResponse.ProtoReflect.Descriptor instead.
+func (*GetMengerListResponse) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *GetMengerListResponse) GetMengerInfos() []*MengerInfo {
+	if x != nil {
+		return x.MengerInfos
+	}
+	return nil
+}
+
+func (x *GetMengerListResponse) GetErrorMsg() *ErrorMsg {
+	if x != nil {
+		return x.ErrorMsg
+	}
+	return nil
+}
+
+type MengerInfo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	MengerId int64  `protobuf:"varint,1,opt,name=mengerId,proto3" json:"mengerId,omitempty"`
+	Name     string `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Email    string `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	Avatar   string `protobuf:"bytes,4,opt,name=avatar,proto3" json:"avatar,omitempty"`
+}
+
+func (x *MengerInfo) Reset() {
+	*x = MengerInfo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_menger_menger_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *MengerInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*MengerInfo) ProtoMessage() {}
+
+func (x *MengerInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_menger_menger_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use MengerInfo.ProtoReflect.Descriptor instead.
+func (*MengerInfo) Descriptor() ([]byte, []int) {
+	return file_proto_menger_menger_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *MengerInfo) GetMengerId() int64 {
+	if x != nil {
+		return x.MengerId
+	}
+	return 0
+}
+
+func (x *MengerInfo) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *MengerInfo) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *MengerInfo) GetAvatar() string {
+	if x != nil {
+		return x.Avatar
 	}
 	return ""
 }
@@ -140,21 +690,103 @@ var File_proto_menger_menger_proto protoreflect.FileDescriptor
 var file_proto_menger_menger_proto_rawDesc = []byte{
 	0x0a, 0x19, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2f, 0x6d,
 	0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x10, 0x77, 0x6d, 0x2e,
-	0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x22, 0x54, 0x0a,
-	0x0c, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a,
-	0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d,
-	0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77,
-	0x6f, 0x72, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77,
-	0x6f, 0x72, 0x64, 0x22, 0x21, 0x0a, 0x0d, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x4d, 0x73, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x03, 0x4d, 0x73, 0x67, 0x32, 0x54, 0x0a, 0x06, 0x4d, 0x65, 0x6e, 0x67, 0x65, 0x72,
-	0x12, 0x4a, 0x0a, 0x05, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x12, 0x1e, 0x2e, 0x77, 0x6d, 0x2e, 0x73,
-	0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x4c, 0x6f, 0x67,
-	0x69, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e, 0x77, 0x6d, 0x2e, 0x73,
-	0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x4c, 0x6f, 0x67,
-	0x69, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x22, 0x1c, 0x0a,
+	0x08, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x12, 0x10, 0x0a, 0x03, 0x6d, 0x73, 0x67,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x22, 0x6f, 0x0a, 0x0f, 0x52,
+	0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12,
+	0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61,
+	0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x73, 0x73,
+	0x77, 0x6f, 0x72, 0x64, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x73, 0x73,
+	0x77, 0x6f, 0x72, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x18, 0x04,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x22, 0x4b, 0x0a, 0x10,
+	0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x37, 0x0a, 0x08, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x18, 0xe7, 0x07, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e,
+	0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x52,
+	0x08, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x22, 0x54, 0x0a, 0x0c, 0x4c, 0x6f, 0x67,
+	0x69, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d,
+	0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a,
+	0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d,
+	0x61, 0x69, 0x6c, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x18,
+	0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x73, 0x73, 0x77, 0x6f, 0x72, 0x64, 0x22,
+	0x9c, 0x01, 0x0a, 0x0d, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x05, 0x74, 0x6f, 0x6b, 0x65, 0x6e, 0x12, 0x3c, 0x0a, 0x0a, 0x6d, 0x65, 0x6e, 0x67, 0x65,
+	0x72, 0x49, 0x6e, 0x66, 0x6f, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x77, 0x6d,
+	0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x4d,
+	0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x0a, 0x6d, 0x65, 0x6e, 0x67, 0x65,
+	0x72, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x37, 0x0a, 0x08, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73,
+	0x67, 0x18, 0xe7, 0x07, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78,
+	0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x45, 0x72, 0x72, 0x6f,
+	0x72, 0x4d, 0x73, 0x67, 0x52, 0x08, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x22, 0x2b,
+	0x0a, 0x0d, 0x4c, 0x6f, 0x67, 0x6f, 0x75, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x1a, 0x0a, 0x08, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x08, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x64, 0x22, 0x49, 0x0a, 0x0e, 0x4c,
+	0x6f, 0x67, 0x6f, 0x75, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x37, 0x0a,
+	0x08, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x18, 0xe7, 0x07, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x1a, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e,
+	0x67, 0x65, 0x72, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x52, 0x08, 0x65, 0x72,
+	0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x22, 0x2e, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x6e,
+	0x67, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65,
+	0x6e, 0x67, 0x65, 0x72, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x6d, 0x65,
+	0x6e, 0x67, 0x65, 0x72, 0x49, 0x64, 0x22, 0x8a, 0x01, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x4d, 0x65,
+	0x6e, 0x67, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3c, 0x0a, 0x0a,
+	0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x1c, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e,
+	0x67, 0x65, 0x72, 0x2e, 0x4d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x0a,
+	0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x37, 0x0a, 0x08, 0x65, 0x72,
+	0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x18, 0xe7, 0x07, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e,
+	0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72,
+	0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x52, 0x08, 0x65, 0x72, 0x72, 0x6f, 0x72,
+	0x4d, 0x73, 0x67, 0x22, 0x34, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x6e, 0x67, 0x65, 0x72,
+	0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x1c, 0x0a, 0x09, 0x6d,
+	0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x64, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x03, 0x52, 0x09,
+	0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x64, 0x73, 0x22, 0x90, 0x01, 0x0a, 0x15, 0x47, 0x65,
+	0x74, 0x4d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x3e, 0x0a, 0x0b, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x6e, 0x66,
+	0x6f, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78,
+	0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x4d, 0x65, 0x6e, 0x67,
+	0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x0b, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x6e,
+	0x66, 0x6f, 0x73, 0x12, 0x37, 0x0a, 0x08, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x18,
+	0xe7, 0x07, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1a, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73,
+	0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x45, 0x72, 0x72, 0x6f, 0x72, 0x4d,
+	0x73, 0x67, 0x52, 0x08, 0x65, 0x72, 0x72, 0x6f, 0x72, 0x4d, 0x73, 0x67, 0x22, 0x6a, 0x0a, 0x0a,
+	0x4d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x1a, 0x0a, 0x08, 0x6d, 0x65,
+	0x6e, 0x67, 0x65, 0x72, 0x49, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x6d, 0x65,
+	0x6e, 0x67, 0x65, 0x72, 0x49, 0x64, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x14, 0x0a, 0x05, 0x65, 0x6d,
+	0x61, 0x69, 0x6c, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x65, 0x6d, 0x61, 0x69, 0x6c,
+	0x12, 0x16, 0x0a, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x06, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x32, 0xb4, 0x03, 0x0a, 0x06, 0x4d, 0x65, 0x6e,
+	0x67, 0x65, 0x72, 0x12, 0x53, 0x0a, 0x08, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x12,
+	0x21, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67,
+	0x65, 0x72, 0x2e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x22, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d,
+	0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4a, 0x0a, 0x05, 0x4c, 0x6f, 0x67, 0x69,
+	0x6e, 0x12, 0x1e, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65,
+	0x6e, 0x67, 0x65, 0x72, 0x2e, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x1f, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65,
+	0x6e, 0x67, 0x65, 0x72, 0x2e, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x00, 0x12, 0x4d, 0x0a, 0x06, 0x4c, 0x6f, 0x67, 0x6f, 0x75, 0x74, 0x12, 0x1f,
+	0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65,
+	0x72, 0x2e, 0x4c, 0x6f, 0x67, 0x6f, 0x75, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x20, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67,
+	0x65, 0x72, 0x2e, 0x4c, 0x6f, 0x67, 0x6f, 0x75, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x00, 0x12, 0x56, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x6e, 0x67, 0x65, 0x72,
+	0x12, 0x22, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e,
+	0x67, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x23, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63,
+	0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x6e, 0x67, 0x65,
+	0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x62, 0x0a, 0x0d, 0x47,
+	0x65, 0x74, 0x4d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x26, 0x2e, 0x77,
+	0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63, 0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e,
+	0x47, 0x65, 0x74, 0x4d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x27, 0x2e, 0x77, 0x6d, 0x2e, 0x73, 0x78, 0x2e, 0x73, 0x76, 0x63,
+	0x2e, 0x6d, 0x65, 0x6e, 0x67, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x4d, 0x65, 0x6e, 0x67, 0x65,
+	0x72, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -169,19 +801,45 @@ func file_proto_menger_menger_proto_rawDescGZIP() []byte {
 	return file_proto_menger_menger_proto_rawDescData
 }
 
-var file_proto_menger_menger_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_menger_menger_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_proto_menger_menger_proto_goTypes = []interface{}{
-	(*LoginRequest)(nil),  // 0: wm.sx.svc.menger.LoginRequest
-	(*LoginResponse)(nil), // 1: wm.sx.svc.menger.LoginResponse
+	(*ErrorMsg)(nil),              // 0: wm.sx.svc.menger.ErrorMsg
+	(*RegisterRequest)(nil),       // 1: wm.sx.svc.menger.RegisterRequest
+	(*RegisterResponse)(nil),      // 2: wm.sx.svc.menger.RegisterResponse
+	(*LoginRequest)(nil),          // 3: wm.sx.svc.menger.LoginRequest
+	(*LoginResponse)(nil),         // 4: wm.sx.svc.menger.LoginResponse
+	(*LogoutRequest)(nil),         // 5: wm.sx.svc.menger.LogoutRequest
+	(*LogoutResponse)(nil),        // 6: wm.sx.svc.menger.LogoutResponse
+	(*GetMengerRequest)(nil),      // 7: wm.sx.svc.menger.GetMengerRequest
+	(*GetMengerResponse)(nil),     // 8: wm.sx.svc.menger.GetMengerResponse
+	(*GetMengerListRequest)(nil),  // 9: wm.sx.svc.menger.GetMengerListRequest
+	(*GetMengerListResponse)(nil), // 10: wm.sx.svc.menger.GetMengerListResponse
+	(*MengerInfo)(nil),            // 11: wm.sx.svc.menger.MengerInfo
 }
 var file_proto_menger_menger_proto_depIdxs = []int32{
-	0, // 0: wm.sx.svc.menger.Menger.Login:input_type -> wm.sx.svc.menger.LoginRequest
-	1, // 1: wm.sx.svc.menger.Menger.Login:output_type -> wm.sx.svc.menger.LoginResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: wm.sx.svc.menger.RegisterResponse.errorMsg:type_name -> wm.sx.svc.menger.ErrorMsg
+	11, // 1: wm.sx.svc.menger.LoginResponse.mengerInfo:type_name -> wm.sx.svc.menger.MengerInfo
+	0,  // 2: wm.sx.svc.menger.LoginResponse.errorMsg:type_name -> wm.sx.svc.menger.ErrorMsg
+	0,  // 3: wm.sx.svc.menger.LogoutResponse.errorMsg:type_name -> wm.sx.svc.menger.ErrorMsg
+	11, // 4: wm.sx.svc.menger.GetMengerResponse.mengerInfo:type_name -> wm.sx.svc.menger.MengerInfo
+	0,  // 5: wm.sx.svc.menger.GetMengerResponse.errorMsg:type_name -> wm.sx.svc.menger.ErrorMsg
+	11, // 6: wm.sx.svc.menger.GetMengerListResponse.mengerInfos:type_name -> wm.sx.svc.menger.MengerInfo
+	0,  // 7: wm.sx.svc.menger.GetMengerListResponse.errorMsg:type_name -> wm.sx.svc.menger.ErrorMsg
+	1,  // 8: wm.sx.svc.menger.Menger.Register:input_type -> wm.sx.svc.menger.RegisterRequest
+	3,  // 9: wm.sx.svc.menger.Menger.Login:input_type -> wm.sx.svc.menger.LoginRequest
+	5,  // 10: wm.sx.svc.menger.Menger.Logout:input_type -> wm.sx.svc.menger.LogoutRequest
+	7,  // 11: wm.sx.svc.menger.Menger.GetMenger:input_type -> wm.sx.svc.menger.GetMengerRequest
+	9,  // 12: wm.sx.svc.menger.Menger.GetMengerList:input_type -> wm.sx.svc.menger.GetMengerListRequest
+	2,  // 13: wm.sx.svc.menger.Menger.Register:output_type -> wm.sx.svc.menger.RegisterResponse
+	4,  // 14: wm.sx.svc.menger.Menger.Login:output_type -> wm.sx.svc.menger.LoginResponse
+	6,  // 15: wm.sx.svc.menger.Menger.Logout:output_type -> wm.sx.svc.menger.LogoutResponse
+	8,  // 16: wm.sx.svc.menger.Menger.GetMenger:output_type -> wm.sx.svc.menger.GetMengerResponse
+	10, // 17: wm.sx.svc.menger.Menger.GetMengerList:output_type -> wm.sx.svc.menger.GetMengerListResponse
+	13, // [13:18] is the sub-list for method output_type
+	8,  // [8:13] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_proto_menger_menger_proto_init() }
@@ -191,7 +849,7 @@ func file_proto_menger_menger_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_proto_menger_menger_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*LoginRequest); i {
+			switch v := v.(*ErrorMsg); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -203,7 +861,127 @@ func file_proto_menger_menger_proto_init() {
 			}
 		}
 		file_proto_menger_menger_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RegisterRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RegisterResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*LoginRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*LoginResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*LogoutRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*LogoutResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetMengerRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetMengerResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetMengerListRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetMengerListResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_menger_menger_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*MengerInfo); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -221,7 +999,7 @@ func file_proto_menger_menger_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_menger_menger_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

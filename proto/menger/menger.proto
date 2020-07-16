@@ -3,8 +3,31 @@ syntax = "proto3";
 package wm.sx.svc.menger;
 
 service Menger {
+    rpc Register (RegisterRequest) returns (RegisterResponse) {
+    }
     rpc Login (LoginRequest) returns (LoginResponse) {
     }
+    rpc Logout (LogoutRequest) returns (LogoutResponse) {
+    }
+    rpc GetMenger (GetMengerRequest) returns (GetMengerResponse) {
+    }
+    rpc GetMengerList (GetMengerListRequest) returns (GetMengerListResponse) {
+    }
+}
+
+message ErrorMsg {
+    string msg = 1;
+}
+
+message RegisterRequest {
+    string name = 1;
+    string email = 2;
+    string password = 3;
+    string avatar = 4;
+}
+
+message RegisterResponse {
+    ErrorMsg errorMsg = 999;
 }
 
 message LoginRequest {
@@ -14,5 +37,40 @@ message LoginRequest {
 }
 
 message LoginResponse {
-    string Msg = 1;
+    string token = 1;
+    MengerInfo mengerInfo = 2;
+    ErrorMsg errorMsg = 999;
+}
+
+message LogoutRequest {
+    int64 mengerId = 1;
+}
+
+message LogoutResponse {
+    ErrorMsg errorMsg = 999;
+}
+
+message GetMengerRequest {
+    int64 mengerId = 1;
+}
+
+message GetMengerResponse {
+    MengerInfo mengerInfo = 1;
+    ErrorMsg errorMsg = 999;
+}
+
+message GetMengerListRequest {
+    repeated int64 mengerIds = 1;
+}
+
+message GetMengerListResponse {
+    repeated MengerInfo mengerInfos = 1;
+    ErrorMsg errorMsg = 999;
+}
+
+message MengerInfo {
+    int64 mengerId = 1;
+    string name = 2;
+    string email = 3;
+    string avatar = 4;
 }
