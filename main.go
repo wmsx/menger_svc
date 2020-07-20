@@ -34,9 +34,13 @@ func main() {
 		}),
 
 		micro.BeforeStart(func() (err error) {
-			err = setting.SetUp(name, env)
-			models.SetUp()
-			return err
+			if err = setting.SetUp(name, env); err != nil {
+				return err
+			}
+			if err = models.SetUp(); err != nil {
+				return err
+			}
+			return nil
 		}),
 		micro.AfterStop(func() error {
 			models.CloseDB()
