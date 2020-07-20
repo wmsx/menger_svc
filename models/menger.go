@@ -2,15 +2,23 @@ package models
 
 import (
 	"github.com/jinzhu/gorm"
+	"time"
 )
 
+type Model struct {
+	ID        int64 `gorm:"primary_key"`
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt *time.Time
+}
+
 type Menger struct {
-	gorm.Model
-	Name     string
-	Email    string
-	Password string
-	Salt     string
-	Avatar   string
+	Model
+	Name     string `gorm:"type:varchar(48);not null"`
+	Email    string `gorm:"type:varchar(48);not null"`
+	Password string `gorm:"type:varchar(128);not null"`
+	Salt     string `gorm:"type:char(4);not null"`
+	Avatar   string  `gorm:"type:varchar(256)"`
 }
 
 func AddMenger(name, email, password, salt, avatar string) error {

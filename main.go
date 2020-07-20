@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/micro/cli/v2"
 	"github.com/micro/go-micro/v2"
-	log "github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/wmsx/menger_svc/handler"
 	"github.com/wmsx/menger_svc/models"
 	menger "github.com/wmsx/menger_svc/proto/menger"

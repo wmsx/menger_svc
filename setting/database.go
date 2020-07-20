@@ -6,7 +6,7 @@ import (
 	"github.com/wmsx/xconf/pkg/client/source"
 )
 
-const DBNamespace = "db"
+const DBNamespace = "database"
 
 var DatabaseSetting = DataBase{}
 
