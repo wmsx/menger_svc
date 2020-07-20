@@ -1,8 +1,8 @@
 package setting
 
 import (
-	"github.com/micro/go-micro/util/log"
 	"github.com/micro/go-micro/v2/config"
+	"github.com/micro/go-micro/v2/util/log"
 	"github.com/wmsx/xconf/pkg/client/source"
 )
 
