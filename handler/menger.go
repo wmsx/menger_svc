@@ -74,7 +74,7 @@ func (*MengerHandler) Login(ctx context.Context, req *proto.LoginRequest, res *p
 		return nil
 	}
 
-	if verified, err = kdfcrypt.Verify(req.Password, menger.Password);  err != nil {
+	if verified, err = kdfcrypt.Verify(req.Password, menger.Password); err != nil {
 		log.Error("验证密码失败 err: ", err)
 		return err
 	}
@@ -84,6 +84,7 @@ func (*MengerHandler) Login(ctx context.Context, req *proto.LoginRequest, res *p
 	}
 
 	res.MengerInfo = &proto.MengerInfo{
+		Id:     menger.ID,
 		Name:   menger.Name,
 		Email:  menger.Email,
 		Avatar: menger.Avatar,
@@ -108,10 +109,10 @@ func (m *MengerHandler) GetMengerList(ctx context.Context, req *proto.GetMengerL
 	mengerInfos := make([]*proto.MengerInfo, 0)
 	for _, menger := range mengers {
 		mengerInfo := &proto.MengerInfo{
-			MengerId: int64(menger.ID),
-			Name:     menger.Name,
-			Email:    menger.Email,
-			Avatar:   menger.Avatar,
+			Id:     menger.ID,
+			Name:   menger.Name,
+			Email:  menger.Email,
+			Avatar: menger.Avatar,
 		}
 		mengerInfos = append(mengerInfos, mengerInfo)
 	}
