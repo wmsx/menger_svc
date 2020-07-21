@@ -23,9 +23,6 @@ func SetUp() (err error) {
 	db.SingularTable(true)
 	db.AutoMigrate(&Menger{})
 
-	db.Model(&Menger{}).AddUniqueIndex("udx_email_delete", "email", "deleted_at")
-	db.Model(&Menger{}).AddUniqueIndex("udx_name_delete", "name", "deleted_at")
-
 	db.DB().SetMaxIdleConns(10)
 	db.DB().SetMaxOpenConns(100)
 	return nil

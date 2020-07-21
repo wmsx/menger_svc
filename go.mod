@@ -8,6 +8,7 @@ require (
 	github.com/micro/cli/v2 v2.1.2
 	github.com/micro/go-micro/v2 v2.5.0
 	github.com/wmsx/xconf v0.0.0-20200720194624-34a4108a8759
+	github.com/xianghuzhao/kdfcrypt v1.5.2
 	golang.org/x/crypto v0.0.0-20200510223506-06a226fb4e37
 	google.golang.org/protobuf v1.25.0
 )

@@ -14,19 +14,17 @@ type Model struct {
 
 type Menger struct {
 	Model
-	Name     string `gorm:"type:varchar(48);not null"`
-	Email    string `gorm:"type:varchar(48);not null"`
+	Name     string `gorm:"type:varchar(48);not null;unique_index"`
+	Email    string `gorm:"type:varchar(48);not null;unique_index"`
 	Password string `gorm:"type:varchar(128);not null"`
-	Salt     string `gorm:"type:char(4);not null"`
 	Avatar   string `gorm:"type:varchar(256)"`
 }
 
-func AddMenger(name, email, password, salt, avatar string) error {
+func AddMenger(name, email, password, avatar string) error {
 	menger := Menger{
 		Name:     name,
 		Email:    email,
 		Password: password,
-		Salt:     salt,
 		Avatar:   avatar,
 	}
 	if err := db.Create(&menger).Error; err != nil {
@@ -37,8 +35,8 @@ func AddMenger(name, email, password, salt, avatar string) error {
 
 func GetMengerByEmailOrName(name, email string) (*Menger, error) {
 	var menger Menger
-	err := db.Where("name = ? or email = ?", name, email).Where("deleted_at = ?", 0).First(&menger).Error
-	if err != nil && err != gorm.ErrRecordNotFound {
+	err := db.Where("name = ? or email = ?", name, email).Where("deleted_at is null").First(&menger).Error
+	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return nil, nil
 		}
@@ -49,7 +47,7 @@ func GetMengerByEmailOrName(name, email string) (*Menger, error) {
 
 func GetMengerByEmail(email string) (*Menger, error) {
 	var menger Menger
-	err := db.Where("email = ? and deleted_at = ?", email, 0).First(&menger).Error
+	err := db.Where("email = ?", email).First(&menger).Error
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return nil, nil
@@ -61,7 +59,7 @@ func GetMengerByEmail(email string) (*Menger, error) {
 
 func GetMengerByName(name string) (*Menger, error) {
 	var menger Menger
-	err := db.Where("name = ? and deleted_at = ?", name, 0).First(&menger).Error
+	err := db.Where("name = ?", name).First(&menger).Error
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return nil, nil
@@ -73,7 +71,7 @@ func GetMengerByName(name string) (*Menger, error) {
 
 func GetMengerByIds(mengerIds []int64) ([]*Menger, error) {
 	var mengers []*Menger
-	err := db.Where("id in (?)", mengerIds).First(&mengers).Error
+	err := db.Where("id in (?) and deleted_at != null", mengerIds).First(&mengers).Error
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return nil, nil
