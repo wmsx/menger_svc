@@ -2,13 +2,10 @@ package handler
 
 import (
 	"context"
-	"crypto/rand"
-	"encoding/base64"
 	log "github.com/micro/go-micro/v2/logger"
 	"github.com/wmsx/menger_svc/models"
 	proto "github.com/wmsx/menger_svc/proto/menger"
 	"github.com/xianghuzhao/kdfcrypt"
-	"golang.org/x/crypto/argon2"
 )
 
 const (
@@ -96,7 +93,24 @@ func (*MengerHandler) Logout(context.Context, *proto.LogoutRequest, *proto.Logou
 	panic("implement me")
 }
 
-func (*MengerHandler) GetMenger(context.Context, *proto.GetMengerRequest, *proto.GetMengerResponse) error {
+func (*MengerHandler) GetMenger(ctx context.Context, req *proto.GetMengerRequest, res *proto.GetMengerResponse) error {
+	var (
+		menger *models.Menger
+		err error
+	)
+	if menger, err = models.GetMengerById(req.MengerId); err != nil {
+		return err
+	}
+	if menger == nil {
+		res.ErrorMsg.Msg = "用户不存在"
+		return nil
+	}
+	res.MengerInfo = &proto.MengerInfo{
+		Id:     menger.ID,
+		Name:   menger.Name,
+		Email:  menger.Email,
+		Avatar: menger.Avatar,
+	}
 	return nil
 }
 
@@ -118,23 +132,4 @@ func (m *MengerHandler) GetMengerList(ctx context.Context, req *proto.GetMengerL
 	}
 	res.MengerInfos = mengerInfos
 	return nil
-}
-
-func cryptoPassword(password, salt string) string {
-	return base64.StdEncoding.EncodeToString(argon2.IDKey([]byte(password), []byte(salt), 1, 64*1024, 4, PasswordLen))
-}
-
-// GenerateRandomBytes returns securely generated random bytes.
-// It will return an error if the system's secure random
-// number generator fails to function correctly, in which
-// case the caller should not continue.
-func generateRandomBytes(n int) ([]byte, error) {
-	b := make([]byte, n)
-	_, err := rand.Read(b)
-	// Note that err == nil only if we read len(b) bytes.
-	if err != nil {
-		return nil, err
-	}
-
-	return b, nil
 }

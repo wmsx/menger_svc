@@ -71,7 +71,7 @@ func GetMengerByName(name string) (*Menger, error) {
 
 func GetMengerByIds(mengerIds []int64) ([]*Menger, error) {
 	var mengers []*Menger
-	err := db.Where("id in (?) and deleted_at != null", mengerIds).First(&mengers).Error
+	err := db.Where("id in (?) and deleted_at is null", mengerIds).First(&mengers).Error
 	if err != nil {
 		if err == gorm.ErrRecordNotFound {
 			return nil, nil
@@ -79,4 +79,16 @@ func GetMengerByIds(mengerIds []int64) ([]*Menger, error) {
 		return nil, err
 	}
 	return mengers, nil
+}
+
+func GetMengerById(mengerId int64) (*Menger, error) {
+	var menger Menger
+	err := db.Where("id = ? and deleted_at is null", mengerId).First(&menger).Error
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &menger, nil
 }
