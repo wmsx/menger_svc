@@ -1,16 +1,6 @@
 package models
 
-import (
-	"github.com/jinzhu/gorm"
-	"time"
-)
-
-type Model struct {
-	ID        int64 `gorm:"primary_key"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt *time.Time
-}
+import "gorm.io/gorm"
 
 type Menger struct {
 	Model
