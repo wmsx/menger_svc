@@ -37,7 +37,7 @@ func AddMenger(name, email, password, salt, avatar string) error {
 
 func GetMengerByEmailOrName(name, email string) (*Menger, error) {
 	var menger Menger
-	err := db.Where("name = ? or email = ?", name, email).Where("delete_at = ?", 0).First(&menger).Error
+	err := db.Where("name = ? or email = ?", name, email).Where("deleted_at = ?", 0).First(&menger).Error
 	if err != nil && err != gorm.ErrRecordNotFound {
 		return nil, err
 	}
@@ -46,7 +46,7 @@ func GetMengerByEmailOrName(name, email string) (*Menger, error) {
 
 func GetMengerByEmail(email string) (*Menger, error) {
 	var menger Menger
-	err := db.Where("email = ? and delete_at = ?", email, 0).First(&menger).Error
+	err := db.Where("email = ? and deleted_at = ?", email, 0).First(&menger).Error
 	if err != nil && err != gorm.ErrRecordNotFound {
 		return nil, err
 	}
@@ -55,7 +55,7 @@ func GetMengerByEmail(email string) (*Menger, error) {
 
 func GetMengerByName(name string) (*Menger, error) {
 	var menger Menger
-	err := db.Where("name = ? and delete_at = ?", name, 0).First(&menger).Error
+	err := db.Where("name = ? and deleted_at = ?", name, 0).First(&menger).Error
 	if err != nil && err != gorm.ErrRecordNotFound {
 		return nil, err
 	}
