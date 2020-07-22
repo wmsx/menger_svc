@@ -34,6 +34,11 @@ func SetUp() (err error) {
 
 	db.AutoMigrate(&Menger{})
 
+	if sqlDB, err = db.DB(); err != nil {
+		log.Error("获取数据库实例失败 err:", err)
+		return err
+	}
+
 	sqlDB.SetMaxIdleConns(10)
 	sqlDB.SetMaxOpenConns(100)
 	return nil
