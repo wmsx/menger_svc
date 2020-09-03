@@ -25,14 +25,6 @@ func (*MengerHandler) Register(ctx context.Context, req *proto.RegisterRequest, 
 		req.Avatar = DefaultAvatar
 	}
 	var old *models.Menger
-	if old, err = models.GetMengerByEmail(req.Email); err != nil {
-		log.Error("查询用户失败 err: ", err)
-		return err
-	}
-	if old != nil {
-		res.ErrorMsg = &proto.ErrorMsg{Msg: "邮箱已被注册"}
-		return nil
-	}
 	if old, err = models.GetMengerByName(req.Name); err != nil {
 		log.Error("查询用户失败 err: ", err)
 		return err
@@ -49,7 +41,7 @@ func (*MengerHandler) Register(ctx context.Context, req *proto.RegisterRequest, 
 		HashLength:       PasswordLen,
 	})
 
-	if err = models.AddMenger(req.Name, req.Email, encodedPassword, req.Avatar); err != nil {
+	if err = models.AddMenger(req.Name, encodedPassword, req.Avatar); err != nil {
 		log.Error("注册用户失败 err: ", err)
 		return err
 	}
@@ -62,7 +54,7 @@ func (*MengerHandler) Login(ctx context.Context, req *proto.LoginRequest, res *p
 		verified bool
 	)
 	var menger *models.Menger
-	if menger, err = models.GetMengerByEmailOrName(req.Name, req.Email); err != nil {
+	if menger, err = models.GetMengerByName(req.Name); err != nil {
 		log.Error("根据邮箱或用户名查找用户失败 err: ", err)
 		return err
 	}
@@ -83,7 +75,6 @@ func (*MengerHandler) Login(ctx context.Context, req *proto.LoginRequest, res *p
 	res.MengerInfo = &proto.MengerInfo{
 		Id:     menger.ID,
 		Name:   menger.Name,
-		Email:  menger.Email,
 		Avatar: menger.Avatar,
 	}
 	return nil
@@ -96,7 +87,7 @@ func (*MengerHandler) Logout(context.Context, *proto.LogoutRequest, *proto.Logou
 func (*MengerHandler) GetMenger(ctx context.Context, req *proto.GetMengerRequest, res *proto.GetMengerResponse) error {
 	var (
 		menger *models.Menger
-		err error
+		err    error
 	)
 	if menger, err = models.GetMengerById(req.MengerId); err != nil {
 		return err
@@ -106,10 +97,9 @@ func (*MengerHandler) GetMenger(ctx context.Context, req *proto.GetMengerRequest
 		return nil
 	}
 	res.MengerInfo = &proto.MengerInfo{
-		Id:     menger.ID,
-		Name:   menger.Name,
-		Email:  menger.Email,
-		Avatar: menger.Avatar,
+		Id:       menger.ID,
+		Name: menger.Name,
+		Avatar:   menger.Avatar,
 	}
 	return nil
 }
@@ -125,7 +115,6 @@ func (m *MengerHandler) GetMengerList(ctx context.Context, req *proto.GetMengerL
 		mengerInfo := &proto.MengerInfo{
 			Id:     menger.ID,
 			Name:   menger.Name,
-			Email:  menger.Email,
 			Avatar: menger.Avatar,
 		}
 		mengerInfos = append(mengerInfos, mengerInfo)

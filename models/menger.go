@@ -5,15 +5,13 @@ import "gorm.io/gorm"
 type Menger struct {
 	Model
 	Name     string `gorm:"type:varchar(48);not null;unique_index"`
-	Email    string `gorm:"type:varchar(48);not null;unique_index"`
 	Password string `gorm:"type:varchar(128);not null"`
 	Avatar   string `gorm:"type:varchar(256)"`
 }
 
-func AddMenger(name, email, password, avatar string) error {
+func AddMenger(name, password, avatar string) error {
 	menger := Menger{
 		Name:     name,
-		Email:    email,
 		Password: password,
 		Avatar:   avatar,
 	}
