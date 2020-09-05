@@ -13,10 +13,23 @@ service Menger {
     }
     rpc GetMengerList (GetMengerListRequest) returns (GetMengerListResponse) {
     }
+    rpc GetFavoritePostList(GetFavoritePostListRequest) returns (GetFavoritePostListResponse) {
+    }
 }
 
 message ErrorMsg {
     string msg = 1;
+}
+
+message GetFavoritePostListRequest {
+    int32 pageNum = 1;
+    int32 pageSize = 2;
+    int64 mengerId = 3;
+}
+
+message GetFavoritePostListResponse {
+    repeated int64 postIds = 1;
+    ErrorMsg errorMsg = 999;
 }
 
 message RegisterRequest {

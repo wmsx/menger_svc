@@ -39,6 +39,7 @@ type MengerService interface {
 	Logout(ctx context.Context, in *LogoutRequest, opts ...client.CallOption) (*LogoutResponse, error)
 	GetMenger(ctx context.Context, in *GetMengerRequest, opts ...client.CallOption) (*GetMengerResponse, error)
 	GetMengerList(ctx context.Context, in *GetMengerListRequest, opts ...client.CallOption) (*GetMengerListResponse, error)
+	GetFavoritePostList(ctx context.Context, in *GetFavoritePostListRequest, opts ...client.CallOption) (*GetFavoritePostListResponse, error)
 }
 
 type mengerService struct {
@@ -103,6 +104,16 @@ func (c *mengerService) GetMengerList(ctx context.Context, in *GetMengerListRequ
 	return out, nil
 }
 
+func (c *mengerService) GetFavoritePostList(ctx context.Context, in *GetFavoritePostListRequest, opts ...client.CallOption) (*GetFavoritePostListResponse, error) {
+	req := c.c.NewRequest(c.name, "Menger.GetFavoritePostList", in)
+	out := new(GetFavoritePostListResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for Menger service
 
 type MengerHandler interface {
@@ -111,6 +122,7 @@ type MengerHandler interface {
 	Logout(context.Context, *LogoutRequest, *LogoutResponse) error
 	GetMenger(context.Context, *GetMengerRequest, *GetMengerResponse) error
 	GetMengerList(context.Context, *GetMengerListRequest, *GetMengerListResponse) error
+	GetFavoritePostList(context.Context, *GetFavoritePostListRequest, *GetFavoritePostListResponse) error
 }
 
 func RegisterMengerHandler(s server.Server, hdlr MengerHandler, opts ...server.HandlerOption) error {
@@ -120,6 +132,7 @@ func RegisterMengerHandler(s server.Server, hdlr MengerHandler, opts ...server.H
 		Logout(ctx context.Context, in *LogoutRequest, out *LogoutResponse) error
 		GetMenger(ctx context.Context, in *GetMengerRequest, out *GetMengerResponse) error
 		GetMengerList(ctx context.Context, in *GetMengerListRequest, out *GetMengerListResponse) error
+		GetFavoritePostList(ctx context.Context, in *GetFavoritePostListRequest, out *GetFavoritePostListResponse) error
 	}
 	type Menger struct {
 		menger
@@ -150,4 +163,8 @@ func (h *mengerHandler) GetMenger(ctx context.Context, in *GetMengerRequest, out
 
 func (h *mengerHandler) GetMengerList(ctx context.Context, in *GetMengerListRequest, out *GetMengerListResponse) error {
 	return h.MengerHandler.GetMengerList(ctx, in, out)
+}
+
+func (h *mengerHandler) GetFavoritePostList(ctx context.Context, in *GetFavoritePostListRequest, out *GetFavoritePostListResponse) error {
+	return h.MengerHandler.GetFavoritePostList(ctx, in, out)
 }

@@ -97,9 +97,9 @@ func (*MengerHandler) GetMenger(ctx context.Context, req *proto.GetMengerRequest
 		return nil
 	}
 	res.MengerInfo = &proto.MengerInfo{
-		Id:       menger.ID,
-		Name: menger.Name,
-		Avatar:   menger.Avatar,
+		Id:     menger.ID,
+		Name:   menger.Name,
+		Avatar: menger.Avatar,
 	}
 	return nil
 }
@@ -120,5 +120,13 @@ func (m *MengerHandler) GetMengerList(ctx context.Context, req *proto.GetMengerL
 		mengerInfos = append(mengerInfos, mengerInfo)
 	}
 	res.MengerInfos = mengerInfos
+	return nil
+}
+
+func (m *MengerHandler) GetFavoritePostList(ctx context.Context,
+	req *proto.GetFavoritePostListRequest,
+	res *proto.GetFavoritePostListResponse) error {
+	postIds := models.GetFavoritePostIds(req.MengerId, req.PageNum, req.PageSize)
+	res.PostIds = postIds
 	return nil
 }
