@@ -130,3 +130,9 @@ func (m *MengerHandler) GetFavoritePostList(ctx context.Context,
 	res.PostIds = postIds
 	return nil
 }
+
+func (m *MengerHandler)  GetThumbUpPostList(ctx context.Context, req *proto.GetThumbUpPostListRequest, res *proto.GetThumbUpPostListResponse) error {
+	postIds := models.GetThumbUpPostIds(req.MengerId, req.PageNum, req.PageSize)
+	res.PostIds = postIds
+	return nil
+}

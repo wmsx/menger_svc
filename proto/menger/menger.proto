@@ -15,11 +15,26 @@ service Menger {
     }
     rpc GetFavoritePostList(GetFavoritePostListRequest) returns (GetFavoritePostListResponse) {
     }
+    rpc GetThumbUpPostList(GetThumbUpPostListRequest) returns (GetThumbUpPostListResponse) {
+    }
 }
+
+
 
 message ErrorMsg {
     string msg = 1;
 }
+
+message GetThumbUpPostListRequest {
+    int32 pageNum = 1;
+    int32 pageSize = 2;
+    int64 mengerId = 3;
+}
+
+message GetThumbUpPostListResponse {
+    repeated int64 postIds = 1;
+}
+
 
 message GetFavoritePostListRequest {
     int32 pageNum = 1;
