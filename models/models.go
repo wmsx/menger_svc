@@ -32,7 +32,7 @@ func SetUp() (err error) {
 		return err
 	}
 
-	db.AutoMigrate(&Menger{})
+	db.AutoMigrate(&Menger{}, &FavoritePost{}, &ThumbUpPost{})
 
 	if sqlDB, err = db.DB(); err != nil {
 		log.Error("获取数据库实例失败 err:", err)

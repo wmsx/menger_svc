@@ -17,18 +17,19 @@ func AddFavorite(mengerId, postId int64) error {
 	return nil
 }
 
-func GetFavoritePostIds(mengerId int64, pageNum, pageSize int32) (ids []int64) {
+func GetFavoritePostIds(mengerId int64, pageNum, pageSize int32) (postIds []int64) {
 	var id int64
 	db.Table("t_favorite_post").
 		Select("id").
-		Where("mengerId = ?", mengerId).
+		Where("menger_id = ?", mengerId).
 		Offset(int(pageNum * pageSize)).
+		Limit(1).
 		Scan(&id)
 
 	db.Table("t_favorite_post").
-		Select("id").
-		Where("id ==> ?", id).
+		Select("post_id").
+		Where("id >= ?", id).
 		Limit(int(pageSize)).
-		Scan(&ids)
-	return nil
+		Scan(&postIds)
+	return
 }
